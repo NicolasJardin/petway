@@ -1,10 +1,18 @@
-import { Container, LeftContent, RightContent, InputsContainer, InputContent } from './Styles'
 import TextInput from 'modules/inputs/TextInput/TextInput'
 import Google from '@mui/icons-material/Google'
 import ButtonContained from 'modules/inputs/ButtonContained/'
 import { Typography, Paper } from '@mui/material'
 import backgroundImage from 'assets/images/background.jpg'
-import { Image } from '@mui/icons-material'
+import Pets from '@mui/icons-material/Pets'
+import {
+  Container,
+  LeftContent,
+  RightContent,
+  MainContainer,
+  InputContent,
+  ButtonContent,
+  Title
+} from './Styles'
 
 const Login = () => {
   return (
@@ -21,8 +29,11 @@ const Login = () => {
       </LeftContent>
 
       <RightContent>
-        <InputsContainer>
-          <Typography variant="h3">Petway</Typography>
+        <MainContainer>
+          <Title>
+            <Typography variant="h3">Petway</Typography>
+            <Pets />
+          </Title>
 
           <InputContent>
             <TextInput label="Digite o seu e-mail" />
@@ -33,10 +44,12 @@ const Login = () => {
           </InputContent>
 
           <ButtonContained color="secondary">
-            <Typography variant="button">Logar com o google</Typography>
-            <Google color="success" />
+            <ButtonContent>
+              <Typography variant="button">Logar com o google</Typography>
+              <Google color="success" />
+            </ButtonContent>
           </ButtonContained>
-        </InputsContainer>
+        </MainContainer>
       </RightContent>
     </Container>
   )

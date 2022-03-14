@@ -3,7 +3,12 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Login from './views/auth/Login/'
+import Login from 'views/auth/Login/'
+import Adoption from 'views/pets/Adoption/Adoption'
+import Donation from './views/pets/Donation/Donation'
+import Info from './views/pets/Info/Info'
+import Shop from './views/pets/Shop/Shop'
+import AboutUs from './views/pets/AboutUs/AboutUs'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,6 +16,11 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="auth/login" element={<Login />} />
+          <Route path="pets/adoption" element={<Adoption />} />
+          <Route path="pets/donation" element={<Donation />} />
+          <Route path="pets/info" element={<Info />} />
+          <Route path="pets/shop" element={<Shop />} />
+          <Route path="pets/about" element={<AboutUs />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -18,7 +18,7 @@ export const RightContent = styled('div', { name: 'RightContent' })(({ theme }) 
   justifyContent: 'center'
 }))
 
-export const InputsContainer = styled('div', { name: 'InputsContainer' })({
+export const MainContainer = styled('div', { name: 'MainContainer' })({
   display: 'flex',
   flexDirection: 'column',
   gap: 20,
@@ -29,4 +29,16 @@ export const InputContent = styled('div', { name: 'InputContent' })({
   '> div': {
     minWidth: 300
   }
+})
+
+export const Title = styled('div', { name: 'Title' })({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 20
+})
+
+export const ButtonContent = styled('div', { name: 'ButtonCOntent' })({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 5
 })
