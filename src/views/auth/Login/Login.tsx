@@ -1,20 +1,36 @@
-import TextInput from 'modules/inputs/TextInput/TextInput'
 import Google from '@mui/icons-material/Google'
-import ButtonContained from 'modules/inputs/ButtonContained/'
-import { Typography, Paper } from '@mui/material'
-import backgroundImage from 'assets/images/background.jpg'
 import Pets from '@mui/icons-material/Pets'
+import { Paper, Typography } from '@mui/material'
+import backgroundImage from 'assets/images/background.jpg'
+import { useAuth } from 'contexts/AuthContext/useAuth'
+import ButtonContained from 'modules/inputs/ButtonContained/'
+import TextInput from 'modules/inputs/TextInput/TextInput'
+import { useCallback } from 'react'
 import {
-  Container,
-  LeftContent,
-  RightContent,
-  MainContainer,
-  InputContent,
   ButtonContent,
+  Container,
+  InputContent,
+  LeftContent,
+  MainContainer,
+  RightContent,
   Title
 } from './Styles'
+import { useNavigate } from 'react-router-dom'
+import { petRoute } from 'routes/petRoute'
 
 const Login = () => {
+  const { signInWithGoogle, user } = useAuth()
+
+  const navigate = useNavigate()
+
+  const handleLoginWithGoogle = useCallback(async () => {
+    if (!user) {
+      await signInWithGoogle()
+    }
+
+    navigate(petRoute.items.adoption.path)
+  }, [user, signInWithGoogle])
+
   return (
     <Container>
       <LeftContent>
@@ -44,7 +60,7 @@ const Login = () => {
           </InputContent>
 
           <ButtonContained color="secondary">
-            <ButtonContent>
+            <ButtonContent onClick={() => handleLoginWithGoogle()}>
               <Typography variant="button">Logar com o google</Typography>
               <Google color="success" />
             </ButtonContent>

@@ -9,20 +9,23 @@ import Donation from './views/pets/Donation/Donation'
 import Info from './views/pets/Info/Info'
 import Shop from './views/pets/Shop/Shop'
 import AboutUs from './views/pets/AboutUs/AboutUs'
+import { AuthContextProvider } from 'contexts/AuthContext/AuthContext'
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="auth/login" element={<Login />} />
-          <Route path="pets/adoption" element={<Adoption />} />
-          <Route path="pets/donation" element={<Donation />} />
-          <Route path="pets/info" element={<Info />} />
-          <Route path="pets/shop" element={<Shop />} />
-          <Route path="pets/about" element={<AboutUs />} />
-        </Route>
-      </Routes>
+      <AuthContextProvider>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path="auth/login" element={<Login />} />
+            <Route path="pets/adoption" element={<Adoption />} />
+            <Route path="pets/donation" element={<Donation />} />
+            <Route path="pets/info" element={<Info />} />
+            <Route path="pets/shop" element={<Shop />} />
+            <Route path="pets/about" element={<AboutUs />} />
+          </Route>
+        </Routes>
+      </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

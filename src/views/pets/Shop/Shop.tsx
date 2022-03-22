@@ -1,7 +1,7 @@
 import LayoutContent from 'modules/layout/LayoutContent'
 
 const Shop = () => {
-  return <LayoutContent></LayoutContent>
+  return <LayoutContent title="Pet Shop"></LayoutContent>
 }
 
 export default Shop

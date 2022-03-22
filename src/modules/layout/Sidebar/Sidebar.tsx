@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 type SidebarProps = {
   user: {
     avatar?: string
-    name: string
+    name?: string
   }
   items: {
     icon: JSX.Element
@@ -45,7 +45,6 @@ const Sidebar = ({ user, items }: SidebarProps) => {
                 {user.avatar ? <img alt="user avatar" src={user.avatar} /> : <Person />}
               </Avatar>
             </ListItemAvatar>
-
             <ListItemText primary={user.name} />
           </ListItem>
         </TopContainer>

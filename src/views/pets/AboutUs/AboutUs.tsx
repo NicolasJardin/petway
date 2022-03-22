@@ -1,7 +1,7 @@
 import LayoutContent from 'modules/layout/LayoutContent'
 
 const AboutUs = () => {
-  return <LayoutContent></LayoutContent>
+  return <LayoutContent title="Sobre nós"></LayoutContent>
 }
 
 export default AboutUs

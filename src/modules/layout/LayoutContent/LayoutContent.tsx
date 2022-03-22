@@ -1,15 +1,24 @@
 import Sidebar from '../Sidebar/Sidebar'
 import Pets from '@mui/icons-material/Pets'
-import { Fragment } from 'react'
-import { MainContainer } from './Styles'
+import { ComponentType, Fragment } from 'react'
+import { MainContainer, TitleContainer } from './Styles'
 import { petRoute } from 'routes/petRoute'
+import { useAuth } from 'contexts/AuthContext/useAuth'
+import { Typography } from '@mui/material'
 
-const LayoutContent = () => {
+type LayoutContentProps = {
+  title: string
+}
+
+const LayoutContent: ComponentType<LayoutContentProps> = ({ children, title }) => {
+  const { user } = useAuth()
+
   return (
     <Fragment>
       <Sidebar
         user={{
-          name: 'Geoswaldo Jubileu Pereira'
+          name: user?.name,
+          avatar: user?.avatar
         }}
         items={[
           {
@@ -40,7 +49,10 @@ const LayoutContent = () => {
         ]}
       />
       <MainContainer>
-        <div>batata</div>
+        <TitleContainer>
+          <Typography variant="h3">{title}</Typography>
+        </TitleContainer>
+        {children}
       </MainContainer>
     </Fragment>
   )

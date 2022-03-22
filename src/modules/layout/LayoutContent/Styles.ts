@@ -6,3 +6,8 @@ export const MainContainer = styled('div', { name: 'MainContainer' })(({ theme }
   backgroundColor: theme.palette.background.default,
   height: '100vh'
 }))
+
+export const TitleContainer = styled('div', { name: 'TitleContainer' })(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center'
+}))
