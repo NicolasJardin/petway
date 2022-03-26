@@ -41,9 +41,7 @@ const Sidebar = ({ user, items }: SidebarProps) => {
         <TopContainer>
           <ListItem button>
             <ListItemAvatar>
-              <Avatar>
-                {user.avatar ? <img alt="user avatar" src={user.avatar} /> : <Person />}
-              </Avatar>
+              <Avatar>{user.avatar ? <img src={user.avatar} alt="" /> : <Person />}</Avatar>
             </ListItemAvatar>
             <ListItemText primary={user.name} />
           </ListItem>

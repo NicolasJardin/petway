@@ -1,15 +1,16 @@
+import { AuthContextProvider } from 'contexts/AuthContext/AuthContext'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from 'views/auth/Login/'
 import Adoption from 'views/pets/Adoption/Adoption'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import Home from './views/home/Home/Home'
+import AboutUs from './views/pets/AboutUs/AboutUs'
 import Donation from './views/pets/Donation/Donation'
 import Info from './views/pets/Info/Info'
 import Shop from './views/pets/Shop/Shop'
-import AboutUs from './views/pets/AboutUs/AboutUs'
-import { AuthContextProvider } from 'contexts/AuthContext/AuthContext'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
       <AuthContextProvider>
         <Routes>
           <Route path="/" element={<App />}>
+            <Route path="/" element={<Home />} />
             <Route path="auth/login" element={<Login />} />
             <Route path="pets/adoption" element={<Adoption />} />
             <Route path="pets/donation" element={<Donation />} />
