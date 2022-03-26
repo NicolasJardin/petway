@@ -24,7 +24,7 @@ ReactDOM.render(
             <Route path="pets/donation" element={<Donation />} />
             <Route path="pets/info" element={<Info />} />
             <Route path="pets/shop" element={<Shop />} />
-            <Route path="pets/about" element={<AboutUs />} />
+            <Route path="pets/about-us" element={<AboutUs />} />
           </Route>
         </Routes>
       </AuthContextProvider>

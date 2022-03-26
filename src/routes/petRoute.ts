@@ -18,7 +18,7 @@ export const petRoute = {
       items: {}
     },
     about: {
-      path: '/pets/about',
+      path: '/pets/about-us',
       items: {}
     }
   }
