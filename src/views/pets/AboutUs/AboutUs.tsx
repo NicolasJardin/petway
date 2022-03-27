@@ -20,7 +20,7 @@ const AboutUs = () => {
               <TextContainer>
                 <Typography variant="body1">
                   A Petway tem como objetivo incentivar a adoção e facilitar este processo, todos os
-                  nossos esforços tem como foco melhorar a qualidade de vida dos nossos "bichanos"
+                  nossos esforços tem como foco melhorar a qualidade de vida dos nossos "bichanos".
                 </Typography>
               </TextContainer>
             </div>

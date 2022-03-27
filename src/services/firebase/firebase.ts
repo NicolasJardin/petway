@@ -8,6 +8,7 @@ import { initializeApp } from 'firebase/app'
 const firebaseConfig = {
   apiKey: 'AIzaSyClJux9kTz331WuToljfaovz_QXsg3szRE',
   authDomain: 'petway-fa4e7.firebaseapp.com',
+  databaseURL: 'https://petway-fa4e7-default-rtdb.firebaseio.com/',
   projectId: 'petway-fa4e7',
   storageBucket: 'petway-fa4e7.appspot.com',
   messagingSenderId: '850408238848',

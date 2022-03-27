@@ -1,5 +1,5 @@
 import { useAuth } from 'contexts/AuthContext/useAuth'
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { petRoute } from 'routes/petRoute'
 
@@ -8,9 +8,11 @@ const Home = () => {
 
   const navigate = useNavigate()
 
-  if (!user) navigate('auth/login')
+  useEffect(() => {
+    if (!user) return navigate('auth/login')
 
-  navigate(petRoute.items.adoption.path)
+    navigate(petRoute.items.adoption.path)
+  }, [user, navigate])
 
   return <Fragment></Fragment>
 }
