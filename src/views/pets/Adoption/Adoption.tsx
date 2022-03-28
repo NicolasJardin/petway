@@ -13,14 +13,16 @@ import {
 } from '@mui/material'
 import { useAuth } from 'contexts/AuthContext/useAuth'
 import { DatabaseReference, getDatabase, off, onValue, ref, remove } from 'firebase/database'
+import DeleteDialog from 'modules/dialogs/DeleteDialog/DeleteDialog'
 import LayoutContent from 'modules/layout/LayoutContent'
 import { Fragment, useCallback, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 import { Pet } from 'types/Pet'
-import DeleteDialog from 'modules/dialogs/DeleteDialog/DeleteDialog'
 
 const Adoption = () => {
   const database = getDatabase()
+  const navigate = useNavigate()
   const [pets, setPets] = useState<Pet[]>([])
   const [dialog, setDialog] = useState<{ open: boolean; petRef?: DatabaseReference }>({
     open: false
@@ -64,6 +66,10 @@ const Adoption = () => {
       }
     }
   >
+
+  useEffect(() => {
+    if (!user) return navigate('/auth/login')
+  }, [user, navigate])
 
   useEffect(() => {
     const petsRef = ref(database, `pets`)
