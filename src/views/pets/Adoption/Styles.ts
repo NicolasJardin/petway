@@ -1,7 +1,8 @@
-import { Divider, ListItem, styled } from '@mui/material'
+import { Divider, styled } from '@mui/material'
 
-export const MainContainer = styled('div', { name: 'MainContainer' })({
-  // padding: 0
+export const ActionsContainer = styled('div', { name: 'ActionsContainer' })({
+  gap: 20,
+  display: 'flex'
 })
 
 export const UserInfoDivider = styled(Divider, { name: 'UserInfoDivider' })({

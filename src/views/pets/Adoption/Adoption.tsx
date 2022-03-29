@@ -1,4 +1,4 @@
-import { Comment, Delete } from '@mui/icons-material'
+import { Comment, Delete, Edit } from '@mui/icons-material'
 import {
   Avatar,
   Card,
@@ -19,6 +19,8 @@ import { Fragment, useCallback, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { Pet } from 'types/Pet'
+import { petRoute } from '../../../routes/petRoute'
+import { ActionsContainer } from './Styles'
 
 const Adoption = () => {
   const database = getDatabase()
@@ -76,7 +78,6 @@ const Adoption = () => {
 
     onValue(petsRef, data => {
       const pets: FirebasePets = data.val()
-      console.log({ pets })
 
       const parsedPets: Pet[] = Object.entries(pets).map(([key, value]) => {
         return {
@@ -116,20 +117,34 @@ const Adoption = () => {
                     <ListItem
                       alignItems="flex-start"
                       secondaryAction={
-                        <Fragment>
+                        <ActionsContainer>
                           <IconButton edge="end" aria-label="comments">
                             <Comment />
                           </IconButton>
                           {user?.id === pet.user.id && (
-                            <IconButton
-                              edge="end"
-                              aria-label="comments"
-                              onClick={() => openDialog(petRef)}
-                            >
-                              <Delete />
-                            </IconButton>
+                            <Fragment>
+                              <IconButton
+                                edge="end"
+                                aria-label="edit"
+                                onClick={() =>
+                                  navigate(`${petRoute.items.donation.path}`, {
+                                    state: { pet }
+                                  })
+                                }
+                              >
+                                <Edit />
+                              </IconButton>
+
+                              <IconButton
+                                edge="end"
+                                aria-label="delete"
+                                onClick={() => openDialog(petRef)}
+                              >
+                                <Delete />
+                              </IconButton>
+                            </Fragment>
                           )}
-                        </Fragment>
+                        </ActionsContainer>
                       }
                     >
                       <ListItemAvatar>
