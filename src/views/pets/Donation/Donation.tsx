@@ -28,8 +28,6 @@ const Donation = () => {
     if (state) return (state as StateProps).pet
   }, [state])
 
-  console.log({ state, pet })
-
   const [species, setSpecies] = useState<string>(pet?.species || '')
   const [race, setRace] = useState<string>(pet?.race || '')
   const [description, setDescription] = useState<string>(pet?.description || '')
